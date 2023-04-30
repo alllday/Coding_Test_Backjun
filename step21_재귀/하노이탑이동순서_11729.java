@@ -1,4 +1,4 @@
-package step17_Àç±Í;
+package step17_Ã€Ã§Â±Ã;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-public class ÇÏ³ëÀÌÅ¾ÀÌµ¿¼ø¼­_11729 {
+public class Ã‡ÃÂ³Ã«Ã€ÃŒÃ…Â¾Ã€ÃŒÂµÂ¿Â¼Ã¸Â¼Â­_11729 {
 
 	static int cnt = 0;
 	static StringBuilder sb = new StringBuilder();
