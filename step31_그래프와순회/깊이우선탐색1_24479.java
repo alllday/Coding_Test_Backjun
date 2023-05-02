@@ -1,4 +1,4 @@
-package step31_±×·¡ÇÁ¿Í¼øÈ¸;
+package step31_ê·¸ë˜í”„ì™€ìˆœíšŒ;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.StringTokenizer;
 
-// Á¤¸®ÇÏ°í ´Ù½Ã Á¦ÃâÇÏ±â + git¾÷·Îµå~
+// ì •ë¦¬í•˜ê³  ë‹¤ì‹œ ì œì¶œí•˜ê¸° + gitì—…ë¡œë“œ~
 
-public class ±íÀÌ¿ì¼±Å½»ö1_24479 {
+public class ê¹Šì´ìš°ì„ íƒìƒ‰1_24479 {
 	
 	static int cnt = 1;
 	public static void main(String[] args) throws IOException{
@@ -21,29 +21,29 @@ public class ±íÀÌ¿ì¼±Å½»ö1_24479 {
 		int m = Integer.parseInt(st.nextToken());
 		int r = Integer.parseInt(st.nextToken());
 		
-		// Á¤Á¡¹æ¹®¿©ºÎ
-		// ÀÎµ¦½º¸¦ 1¹øºÎÅÍ ½ÃÀÛÇÏ±â À§ÇØ(Çò°¥¸®Áö ¾Ê°Ô) »çÀÌÁî¸¦ ÇÊ¿äÇÑ °Í º¸´Ù ÇÏ³ª ´õ Å©°Ô ¸¸µé¾îÁÜ.
+		// ì •ì ë°©ë¬¸ì—¬ë¶€
+		// ì¸ë±ìŠ¤ë¥¼ 1ë²ˆë¶€í„° ì‹œì‘í•˜ê¸° ìœ„í•´(í—·ê°ˆë¦¬ì§€ ì•Šê²Œ) ì‚¬ì´ì¦ˆë¥¼ í•„ìš”í•œ ê²ƒ ë³´ë‹¤ í•˜ë‚˜ ë” í¬ê²Œ ë§Œë“¤ì–´ì¤Œ.
 		int[] visited = new int[n+1];
-		// Á¤Á¡º°·Î °£¼±Á¤º¸¸¦ ÀúÀåÇÏ±â À§ÇØ ¸®½ºÆ® ÁßÃ¸
-		// 2Â÷¿ø ¹è¿­ÀÌ ¾Æ´Ï¶ó ¸®½ºÆ® ÁßÃ¸ÀÎ ÀÌÀ¯? : ¸Ş¸ğ¸®¹®Á¦!, 2Â÷¿ø¹è¿­Àº ºÒÇÊ¿äÇÑ Á¤º¸ÀúÀåÀÌ ³Ê¹« ¸¹À½
+		// ì •ì ë³„ë¡œ ê°„ì„ ì •ë³´ë¥¼ ì €ì¥í•˜ê¸° ìœ„í•´ ë¦¬ìŠ¤íŠ¸ ì¤‘ì²©
+		// 2ì°¨ì› ë°°ì—´ì´ ì•„ë‹ˆë¼ ë¦¬ìŠ¤íŠ¸ ì¤‘ì²©ì¸ ì´ìœ ? : ë©”ëª¨ë¦¬ë¬¸ì œ!, 2ì°¨ì›ë°°ì—´ì€ ë¶ˆí•„ìš”í•œ ì •ë³´ì €ì¥ì´ ë„ˆë¬´ ë§ìŒ ( ë‹¨, ê²€ìƒ‰ì— ìˆì–´ì„œëŠ” ë°°ì—´ì´ ë” ë¹ ë¥´ë‹¤! )
 		ArrayList<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
 		
-		// ¸®½ºÆ® »ı¼º
+		// ë¦¬ìŠ¤íŠ¸ ìƒì„±
 		for (int i = 0; i < n+1; i++) {
 			list.add(new ArrayList<Integer>());
 		}
 		
-		// °£¼±Á¤º¸ ÀÔ·Â&ÀúÀå
+		// ê°„ì„ ì •ë³´ ì…ë ¥&ì €ì¥
 		for (int i = 0; i < m; i++) {
 			st = new StringTokenizer(br.readLine());
 			int u = Integer.parseInt(st.nextToken());
 			int v = Integer.parseInt(st.nextToken());
-			// ¾ç Á¤Á¡¿¡ ´ëÇØ¼­ ÀúÀåÇØ¾ß ÇÔ!
+			// ì–‘ ì •ì ì— ëŒ€í•´ì„œ ì €ì¥í•´ì•¼ í•¨!
 			list.get(u).add(v);
 			list.get(v).add(u);
 		}
 		
-		// ¹®Á¦ Á¶°Ç¿¡ µû¶ó Å©±â°¡ ÀÛÀº Á¤Á¡ºÎÅÍ ¹æ¹®ÇÏ±â À§ÇØ Á¤·Ä
+		// ë¬¸ì œ ì¡°ê±´ì— ë”°ë¼ í¬ê¸°ê°€ ì‘ì€ ì •ì ë¶€í„° ë°©ë¬¸í•˜ê¸° ìœ„í•´ ì •ë ¬
 		for (int i = 1; i < n+1; i++) {
 			Collections.sort(list.get(i));
 		}
@@ -57,10 +57,10 @@ public class ±íÀÌ¿ì¼±Å½»ö1_24479 {
 		System.out.println(sb);
 	}
 	
-	// ¹®Á¦¿¡ Á¶°Ç¿¡ µû¶ó DFS±âº»±¸Á¶¿¡¼­ »ìÂ¦ º¯Çü
-	// main°ú dfsÇÔ¼ö¿¡¼­ ¹è¿­°ú ¸®½ºÆ®¸¦ ¾²´Ï Àü¿ªº¯¼ö·Î ¾²´Â°Ô ´õ ÁÁ¾ÒÀ» µí ÇÏ´Ù. (´Ù¸¥ °÷¿¡¼­µµ ¾µ ¼ö µµ ÀÖÀ¸´Ï±î)
+	// ë¬¸ì œì— ì¡°ê±´ì— ë”°ë¼ DFSê¸°ë³¸êµ¬ì¡°ì—ì„œ ì‚´ì§ ë³€í˜•
+	// mainê³¼ dfsí•¨ìˆ˜ì—ì„œ ë°°ì—´ê³¼ ë¦¬ìŠ¤íŠ¸ë¥¼ ì“°ë‹ˆ ì „ì—­ë³€ìˆ˜ë¡œ ì“°ëŠ”ê²Œ ë” ì¢‹ì•˜ì„ ë“¯ í•˜ë‹¤. (ë‹¤ë¥¸ ê³³ì—ì„œë„ ì“¸ ìˆ˜ ë„ ìˆìœ¼ë‹ˆê¹Œ)
 	static void dfs(int[] visited, ArrayList<ArrayList<Integer>> list, int r) {
-		visited[r] = cnt++; // cnt´Â static ¼±¾ğ
+		visited[r] = cnt++; // cntëŠ” static ì„ ì–¸
 		
 		for (int i = 0; i < list.get(r).size(); i++) {
 			if (visited[list.get(r).get(i)] == 0) {
@@ -69,7 +69,7 @@ public class ±íÀÌ¿ì¼±Å½»ö1_24479 {
 		}	
 	}
 	
-	// DFS ±âº»±¸Á¶
+	// DFS ê¸°ë³¸êµ¬ì¡°
 //	static void dfs(int[] visited, ArrayList<ArrayList<Integer>> list, int r) {
 //		visited[r] = true; 
 //		
